@@ -48,7 +48,7 @@ void eval(int program[]) {
     }
 
     case FREE: {
-        int popped_val = stack[SP--];
+        SP--;
         break;
     }
 
