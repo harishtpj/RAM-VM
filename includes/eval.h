@@ -27,6 +27,11 @@ void eval(int program[]) {
         break;
     }
 
+    case FREE: {
+        int popped_val = stack[SP--];
+        break;
+    }
+
     case ADD: {
         int a = stack[SP--];
         int b = stack[SP--];
@@ -67,6 +72,14 @@ void eval(int program[]) {
         break;
     }
 
+    case MOV: {
+        int reg_a = program[IP + 1];
+        int reg_b = program[IP + 2];
+        registers[reg_b] = registers[reg_a];
+        IP = IP + 2;
+        break;
+    }
+
     case LDR: {
         SP = SP + 1;
         IP = IP + 1;
@@ -82,6 +95,7 @@ void eval(int program[]) {
     }
     
     default:
+        printf("Unknown Instruction %d\n", instr);
         break;
     }
 }

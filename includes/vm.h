@@ -27,5 +27,7 @@ int registers[REG_SIZE];
 
 /* Important Flags and Variables */
 bool running = true;
+int instruction_space = 4;
+int instruction_count = 0;
 
 #endif
