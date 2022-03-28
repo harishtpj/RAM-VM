@@ -36,6 +36,7 @@ typedef enum {
     MOV,  // Moves registry value
     LDR,  // Loads Registry into Stack
     PSR,  // Loads Registry into Stack
+    PREG, // Print Specified Registry
     HALT  // Stops Execution
 } InstructionSet;
 

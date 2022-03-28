@@ -113,6 +113,12 @@ void eval(int program[]) {
         IP = IP + 1;
         break;
     }
+
+    case PREG: {
+        printf("%d\n", registers[program[IP + 1]]);
+        IP = IP + 1;
+        break;
+    }
     
     default:
         printf("Unknown Instruction %d\n", instr);

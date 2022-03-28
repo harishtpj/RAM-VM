@@ -21,7 +21,16 @@ def asedit(fcont):
              .replace("MOV", "8")   \
              .replace("LDR", "9")   \
              .replace("PSR", "10")   \
-             .replace("HALT", "11")
+             .replace("PREG", "11")   \
+             .replace("HALT", "12")
+
+    fcont = fcont.replace("RA", "0")  \
+             .replace("RB", "1")   \
+             .replace("RC", "2")  \
+             .replace("RD", "3")   \
+             .replace("RE", "4")   \
+             .replace("RF", "5") 
+             
     return fcont
 
 def writeobj(fname, asmcont):
