@@ -3,6 +3,7 @@
 import argparse
 import os
 import sys
+import re
 
 __version__ = 1.0
 __author__ = "M.V.Harish Kumar"
@@ -24,7 +25,9 @@ def asedit(fcont):
              .replace("PREG", "11")   \
              .replace("IFN", "13")   \
              .replace("IF", "12")   \
-             .replace("HALT", "14")
+             .replace("PUTS", "14")   \
+             .replace("NL", "15")   \
+             .replace("HALT", "16")
 
     fcont = fcont.replace("RA", "0")  \
              .replace("RB", "1")   \
@@ -33,6 +36,16 @@ def asedit(fcont):
              .replace("RE", "4")   \
              .replace("RF", "5")   \
              .replace("IP", "6")   \
+
+    matches = re.findall(r'"(.+?)"',fcont)
+    if matches:
+        for match in matches:
+            chars = []
+            for i in match:
+                chars.append(str(ord(i)))
+            stch = " ".join(chars)
+            fcont = fcont.replace(f"\"{match}\"", f"{len(match)} {stch}")
+
 
     return fcont
 

@@ -1,0 +1,5 @@
+PUTS "Hello"
+NL
+SET RC 98
+PREG RC
+HALT

@@ -39,6 +39,8 @@ typedef enum {
     PREG, // Print Specified Registry
     IF,   // if reg == val jumps to IP
     IFN,  // if reg != val jumps to IP
+    PUTS, // Puts String 
+    NL,   // Puts New line 
     HALT  // Stops Execution
 } InstructionSet;
 

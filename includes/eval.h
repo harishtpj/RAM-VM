@@ -146,6 +146,20 @@ void eval(int program[]) {
         }
         break;
     }
+
+    case PUTS: {
+        int slen = program[IP + 1];
+        for (int i = 0; i <= slen; i++) {
+            putchar(program[IP + 1 + i]);
+        }
+        IP = IP + slen + 1;
+        break;
+    }
+
+    case NL: {
+        putchar('\n');
+        break;
+    }
     
     default:
         printf("Unknown Instruction %d\n", instr);
