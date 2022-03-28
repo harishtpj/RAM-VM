@@ -28,6 +28,7 @@ SOFTWARE.
 
 void eval(int program[]) {
     int instr = FETCH;
+    is_jmp = false;
 
     switch (instr) {
     case HALT: {
@@ -117,6 +118,32 @@ void eval(int program[]) {
     case PREG: {
         printf("%d\n", registers[program[IP + 1]]);
         IP = IP + 1;
+        break;
+    }
+
+    case IF: {
+        int reg = registers[program[IP + 1]];
+        int val = program[IP + 2];
+        
+        if (reg == val) {
+            IP = program[IP + 3];
+            is_jmp = true;
+        } else {
+            IP = IP + 3;
+        }
+        break;
+    }
+
+    case IFN: {
+        int reg = registers[program[IP + 1]];
+        int val = program[IP + 2];
+        
+        if (reg != val) {
+            IP = program[IP + 3];
+            is_jmp = true;
+        } else {
+            IP = IP + 3;
+        }
         break;
     }
     

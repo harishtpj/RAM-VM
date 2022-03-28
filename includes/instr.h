@@ -37,6 +37,8 @@ typedef enum {
     LDR,  // Loads Registry into Stack
     PSR,  // Loads Registry into Stack
     PREG, // Print Specified Registry
+    IF,   // if reg == val jumps to IP
+    IFN,  // if reg != val jumps to IP
     HALT  // Stops Execution
 } InstructionSet;
 

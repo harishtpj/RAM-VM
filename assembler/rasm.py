@@ -22,15 +22,18 @@ def asedit(fcont):
              .replace("LDR", "9")   \
              .replace("PSR", "10")   \
              .replace("PREG", "11")   \
-             .replace("HALT", "12")
+             .replace("IFN", "13")   \
+             .replace("IF", "12")   \
+             .replace("HALT", "14")
 
     fcont = fcont.replace("RA", "0")  \
              .replace("RB", "1")   \
              .replace("RC", "2")  \
              .replace("RD", "3")   \
              .replace("RE", "4")   \
-             .replace("RF", "5") 
-             
+             .replace("RF", "5")   \
+             .replace("IP", "6")   \
+
     return fcont
 
 def writeobj(fname, asmcont):

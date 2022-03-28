@@ -47,6 +47,7 @@ int registers[REG_SIZE];
 
 /* Important Flags and Variables */
 bool running = true;
+bool is_jmp = false;
 int instruction_space = 4;
 int instruction_count = 0;
 

@@ -67,7 +67,9 @@ int main(int argc, char** argv) {
     
     while (running && IP < instruction_count) {
         eval(program);
-        IP++;
+        if(!is_jmp){
+            IP = IP + 1;
+        }
     }
 
     free(program);
