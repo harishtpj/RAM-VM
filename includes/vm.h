@@ -26,7 +26,7 @@ SOFTWARE.
 #include <instr.h>
 
 /* The RAM-VM Stack */
-#define STACK_SIZE 256
+#define STACK_SIZE 512
 
 int stack[STACK_SIZE];
 
