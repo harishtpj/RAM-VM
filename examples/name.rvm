@@ -1,0 +1,7 @@
+puts "Enter your name: "
+gets
+puts "Hello, "
+pstr
+puts "!"
+nl
+halt

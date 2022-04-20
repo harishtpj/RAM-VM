@@ -25,23 +25,28 @@ SOFTWARE.
 
 /* Instruction Set for VM */
 typedef enum {
-    PUSH, // Push Value
-    POP,  // Pop Value
-    FREE, // Silent POP
-    ADD,  // Add Values in stack
-    SUB,  // Subtract Values in stack
-    MUL,  // Multiply Values in stack
-    DIV,  // Divide Values in stack
-    SET,  // Sets registry value to given value
-    MOV,  // Moves registry value
-    LDR,  // Loads Registry into Stack
-    PSR,  // Loads Registry into Stack
-    PREG, // Print Specified Registry
-    IF,   // if reg == val jumps to IP
-    IFN,  // if reg != val jumps to IP
-    PUTS, // Puts String 
-    NL,   // Puts New line 
-    HALT  // Stops Execution
+    PUSH,  // Push Value
+    POP,   // Pop Value
+    FREE,  // Silent POP
+    ADD,   // Add Values in stack
+    SUB,   // Subtract Values in stack
+    MUL,   // Multiply Values in stack
+    DIV,   // Divide Values in stack
+    SET,   // Sets registry value to given value
+    MOV,   // Moves registry value
+    LDR,   // Loads Registry into Stack
+    PSR,   // Loads Top of Stack into Registry
+    PREG,  // Print Specified Registry
+    IF,    // if reg == val jumps to IP
+    IFN,   // if reg != val jumps to IP
+    PUTS,  // Puts String 
+    NL,    // Puts New line
+    GETC,  // Get a single char
+    PUTC,  // Prints a single char
+    CATC,  // Concat a char in RC to global str
+    PSTR,  // Prints global str
+    GETS,  // Gets String
+    HALT   // Stops Execution
 } InstructionSet;
 
 #endif

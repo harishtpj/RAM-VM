@@ -24,6 +24,7 @@ SOFTWARE.
 #define EVAL_H
 
 #include <stdio.h>
+#include <string.h>
 #include <vm.h>
 
 void eval(int program[]) {
@@ -158,6 +159,33 @@ void eval(int program[]) {
 
     case NL: {
         putchar('\n');
+        break;
+    }
+
+    case GETC: {
+        registers[RC] = getc(stdin);
+        break;
+    }
+
+    case PUTC: {
+        char ch = stack[SP--];
+        putchar(ch);
+        break;
+    }
+
+    case CATC: {
+        char tmp[2] = {registers[RC], 0};
+        strcat(str, tmp);
+        break;
+    }
+
+    case PSTR: {
+        printf("%s", str);
+        break;
+    }
+
+    case GETS: {
+        scanf("%100[^\n]%*c", str);
         break;
     }
     

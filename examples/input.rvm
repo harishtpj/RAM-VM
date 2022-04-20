@@ -1,0 +1,5 @@
+puts "Enter your char: "
+getc
+ldr rc
+putc
+halt

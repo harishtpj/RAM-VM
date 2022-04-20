@@ -39,6 +39,7 @@ typedef enum {
 } Registers;
 
 int registers[REG_SIZE];
+char str[100];
 
 /* Pointers */
 #define SP (registers[SP])

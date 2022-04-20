@@ -29,7 +29,23 @@ __author__ = "M.V.Harish Kumar"
 __version_str__ = f"This is RASM - The RAM-VM assembler v{__version__} Created by {__author__}"
 
 
+def strep(fcont):
+    matches = re.findall(r'"(.+?)"',fcont)
+    if matches:
+        for match in matches:
+            chars = []
+            for i in match:
+                chars.append(str(ord(i)))
+            stch = " ".join(chars)
+            fcont = fcont.replace(f"\"{match}\"", f"{len(match)} {stch}")
+    return fcont
+    
+
+
 def asedit(fcont):
+    fcont = strep(fcont)
+    fcont = fcont.upper()
+    
     fcont = fcont.replace("PUSH", "0")  \
              .replace("POP", "1")   \
              .replace("FREE", "2")  \
@@ -46,7 +62,12 @@ def asedit(fcont):
              .replace("IF", "12")   \
              .replace("PUTS", "14")   \
              .replace("NL", "15")   \
-             .replace("HALT", "16")
+             .replace("GETC", "16") \
+             .replace("PUTC", "17") \
+             .replace("CATC", "18") \
+             .replace("PSTR", "19") \
+             .replace("GETS", "20") \
+             .replace("HALT", "21")
 
     fcont = fcont.replace("RA", "0")  \
              .replace("RB", "1")   \
@@ -56,22 +77,13 @@ def asedit(fcont):
              .replace("RF", "5")   \
              .replace("IP", "6")   \
 
-    matches = re.findall(r'"(.+?)"',fcont)
-    if matches:
-        for match in matches:
-            chars = []
-            for i in match:
-                chars.append(str(ord(i)))
-            stch = " ".join(chars)
-            fcont = fcont.replace(f"\"{match}\"", f"{len(match)} {stch}")
-
 
     return fcont
 
 def writeobj(fname, asmcont):
     objfname = fname[:-4] + ".o"
     with open(objfname, "w") as fw:
-        fw.write(asmcont)
+        fw.write('\n'.join([i for i in asmcont.split('\n') if len(i) > 0]))
 
 
 def assemble(fname):

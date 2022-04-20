@@ -1,0 +1,10 @@
+puts "Hello, World!"
+nl
+push 10
+push 2
+add
+push 8
+add
+psr ra
+preg ra
+halt
