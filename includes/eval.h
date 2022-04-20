@@ -117,7 +117,7 @@ void eval(int program[]) {
     }
 
     case PREG: {
-        printf("%d\n", registers[program[IP + 1]]);
+        printf("%d", registers[program[IP + 1]]);
         IP = IP + 1;
         break;
     }
@@ -186,6 +186,37 @@ void eval(int program[]) {
 
     case GETS: {
         scanf("%100[^\n]%*c", str);
+        break;
+    }
+
+    case AND: {
+        int reg_a = program[IP + 1];
+        int reg_b = program[IP + 2];
+        registers[reg_a] &= registers[reg_b];
+        IP = IP + 2;
+        break;
+    }
+
+    case OR: {
+        int reg_a = program[IP + 1];
+        int reg_b = program[IP + 2];
+        registers[reg_a] |= registers[reg_b];
+        IP = IP + 2;
+        break;
+    }
+
+    case XOR: {
+        int reg_a = program[IP + 1];
+        int reg_b = program[IP + 2];
+        registers[reg_a] ^= registers[reg_b];
+        IP = IP + 2;
+        break;
+    }
+
+    case NOT: {
+        int reg_a = program[IP + 1];
+        registers[reg_a] = ~registers[reg_a];
+        IP = IP + 1;
         break;
     }
     

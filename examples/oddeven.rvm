@@ -1,0 +1,11 @@
+set RA 97
+mov RA RB
+set RF 1
+and RB RF
+preg RA
+puts " "
+if RB 1 32
+puts "is Even" nl
+halt
+puts "is Odd" nl
+halt

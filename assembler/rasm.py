@@ -67,7 +67,11 @@ def asedit(fcont):
              .replace("CATC", "18") \
              .replace("PSTR", "19") \
              .replace("GETS", "20") \
-             .replace("HALT", "21")
+             .replace("AND", "21") \
+             .replace("OR", "22") \
+             .replace("XOR", "23") \
+             .replace("NOT", "24") \
+             .replace("HALT", "25")
 
     fcont = fcont.replace("RA", "0")  \
              .replace("RB", "1")   \

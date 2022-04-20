@@ -25,20 +25,29 @@ SOFTWARE.
 
 /* Instruction Set for VM */
 typedef enum {
+    /* Basic Stack Operations */
     PUSH,  // Push Value
     POP,   // Pop Value
     FREE,  // Silent POP
+
+    /* Arithmetic operations on stack */
     ADD,   // Add Values in stack
     SUB,   // Subtract Values in stack
     MUL,   // Multiply Values in stack
     DIV,   // Divide Values in stack
+
+    /* Registry Operations */
     SET,   // Sets registry value to given value
     MOV,   // Moves registry value
     LDR,   // Loads Registry into Stack
     PSR,   // Loads Top of Stack into Registry
     PREG,  // Print Specified Registry
+
+    /* If/Ifnot Operations */
     IF,    // if reg == val jumps to IP
     IFN,   // if reg != val jumps to IP
+
+    /* Basic I/O & String(Char) related operations */
     PUTS,  // Puts String 
     NL,    // Puts New line
     GETC,  // Get a single char
@@ -46,6 +55,13 @@ typedef enum {
     CATC,  // Concat a char in RC to global str
     PSTR,  // Prints global str
     GETS,  // Gets String
+
+    /* Bitwise Operations */
+    AND, // Bitwise and(&)
+    OR, // Bitwise or(|)
+    XOR, // Bitwise xor(^)
+    NOT, // Bitwise not(~)
+
     HALT   // Stops Execution
 } InstructionSet;
 
